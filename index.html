@@ -1,0 +1,2971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="theme-color" content="#06060f"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<title>MaBhiza On Delivery – We Deliver, You Relax</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+/* ─────────────────────────────────────────────
+   CSS VARIABLES & RESET
+───────────────────────────────────────────── */
+:root {
+  --bg:         #06060f;
+  --bg2:        #0c0c1e;
+  --bg3:        #111128;
+  --purple-deep: #1a0a3c;
+  --purple:     #6d28d9;
+  --purple-mid: #7c3aed;
+  --purple-lt:  #a78bfa;
+  --purple-glow:#4c1d95;
+  --gold:       #f59e0b;
+  --gold-lt:    #fcd34d;
+  --gold-dk:    #d97706;
+  --white:      #ffffff;
+  --white-80:   rgba(255,255,255,0.80);
+  --white-60:   rgba(255,255,255,0.60);
+  --white-40:   rgba(255,255,255,0.40);
+  --white-20:   rgba(255,255,255,0.20);
+  --white-10:   rgba(255,255,255,0.10);
+  --white-05:   rgba(255,255,255,0.05);
+  --white-03:   rgba(255,255,255,0.03);
+  --border:     rgba(255,255,255,0.10);
+  --border-lt:  rgba(255,255,255,0.06);
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body:  'Plus Jakarta Sans', sans-serif;
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  22px;
+  --radius-xl:  32px;
+  --transition: 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { font-family: var(--font-body); cursor: pointer; border: none; outline: none; }
+ul { list-style: none; }
+
+/* ─────────────────────────────────────────────
+   UTILITY CLASSES
+───────────────────────────────────────────── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 100px;
+  background: var(--white-03);
+  border: 1px solid var(--border);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 8px var(--gold);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 40%, var(--purple-lt) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.purple-text {
+  background: linear-gradient(135deg, var(--purple-lt) 0%, #c4b5fd 50%, var(--white) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─────────────────────────────────────────────
+   BUTTONS
+───────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 30px;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dk) 100%);
+  color: #0a0a18;
+  box-shadow: 0 4px 24px rgba(245, 158, 11, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(245, 158, 11, 0.55);
+  background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 100%);
+}
+
+.btn-primary:active { transform: translateY(0); }
+
+.btn-secondary {
+  background: var(--white-05);
+  color: var(--white-80);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+
+.btn-secondary:hover {
+  background: var(--white-10);
+  border-color: var(--white-20);
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25d366, #128c3b);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.30);
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.45);
+}
+
+.btn-lg {
+  padding: 18px 40px;
+  font-size: 16px;
+}
+
+.btn-sm {
+  padding: 10px 22px;
+  font-size: 13px;
+}
+
+/* ─────────────────────────────────────────────
+   ANIMATED GEOMETRIC SHAPES
+───────────────────────────────────────────── */
+@keyframes float-up {
+  0%   { opacity: 0; transform: translateY(-80px) rotate(var(--rot-start)); }
+  100% { opacity: 1; transform: translateY(0)     rotate(var(--rot-end)); }
+}
+
+@keyframes float-bob {
+  0%, 100% { transform: translateY(0)    rotate(var(--rot-end)); }
+  50%       { transform: translateY(18px) rotate(var(--rot-end)); }
+}
+
+@keyframes fade-up {
+  0%   { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-badge {
+  0%   { opacity: 0; transform: translateY(20px) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(0.8); opacity: 0.6; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.15; }
+  50%       { opacity: 0.30; }
+}
+@keyframes count-up { from { opacity: 0; } to { opacity: 1; } }
+
+@keyframes shimmer {
+  0%   { background-position: -300% center; }
+  100% { background-position:  300% center; }
+}
+
+.geo-shape {
+  position: absolute;
+  border-radius: 9999px;
+  border: 2px solid rgba(255,255,255,0.12);
+  background: linear-gradient(to right, var(--shape-color), transparent);
+  backdrop-filter: blur(2px);
+  box-shadow: inset 0 0 60px rgba(255,255,255,0.06),
+              0 8px 40px rgba(0,0,0,0.3);
+  opacity: 0;
+  animation:
+    float-up var(--rise-dur, 2.4s) var(--rise-delay, 0s) cubic-bezier(0.23, 0.86, 0.39, 0.96) forwards,
+    float-bob var(--bob-dur, 12s) calc(var(--rise-delay, 0s) + var(--rise-dur, 2.4s)) ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────────
+   NAVIGATION
+───────────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+}
+
+.nav.scrolled {
+  background: rgba(6,6,15,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.07);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.nav-logo-top {
+  font-family: var(--font-display);
+  font-size: 26px;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  background: linear-gradient(to right, var(--white), var(--purple-lt));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-logo-sub {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--white-60);
+  transition: color 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.nav-links a:hover { color: var(--white); }
+
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px;
+  background: none;
+}
+
+.nav-menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--white-80);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+/* ─────────────────────────────────────────────
+   MOBILE NAV DRAWER
+───────────────────────────────────────────── */
+.mobile-nav {
+  position: fixed;
+  top: 0; right: 0;
+  width: 280px;
+  height: 100vh;
+  background: rgba(10, 8, 30, 0.97);
+  backdrop-filter: blur(30px);
+  border-left: 1px solid var(--border);
+  z-index: 2000;
+  padding: 80px 32px 40px;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobile-nav.open { transform: translateX(0); }
+
+.mobile-nav-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--white-05);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--white-80);
+  transition: background 0.2s;
+}
+
+.mobile-nav-close:hover { background: var(--white-10); }
+
+.mobile-nav a {
+  display: block;
+  padding: 14px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white-60);
+  border-bottom: 1px solid var(--border-lt);
+  transition: color 0.2s;
+}
+
+.mobile-nav a:hover { color: var(--white); }
+
+.mobile-nav .btn {
+  margin-top: 24px;
+  width: 100%;
+}
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.nav-overlay.active { opacity: 1; pointer-events: all; }
+
+/* ─────────────────────────────────────────────
+   HERO SECTION
+───────────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 120px 0 80px;
+}
+
+.hero-bg-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(109, 40, 217, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(245, 158, 11, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 20% 70%, rgba(109, 40, 217, 0.10) 0%, transparent 60%);
+  animation: glow-pulse 8s ease-in-out infinite;
+}
+
+.hero-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
+}
+
+/* Individual Shapes */
+.shape-1 {
+  --shape-color: rgba(109, 40, 217, 0.18);
+  --rot-start: -3deg;
+  --rot-end:   12deg;
+  --rise-delay: 0.3s;
+  --bob-dur: 14s;
+  width: 620px; height: 148px;
+  left: -8%;
+  top: 18%;
+}
+
+.shape-2 {
+  --shape-color: rgba(245, 158, 11, 0.13);
+  --rot-start: 0deg;
+  --rot-end:  -15deg;
+  --rise-delay: 0.5s;
+  --bob-dur: 11s;
+  width: 520px; height: 130px;
+  right: -4%;
+  top: 65%;
+}
+
+.shape-3 {
+  --shape-color: rgba(167, 139, 250, 0.13);
+  --rot-start: 2deg;
+  --rot-end:  -8deg;
+  --rise-delay: 0.4s;
+  --bob-dur: 16s;
+  width: 320px; height: 85px;
+  left: 6%;
+  bottom: 8%;
+}
+
+.shape-4 {
+  --shape-color: rgba(245, 158, 11, 0.10);
+  --rot-start: 5deg;
+  --rot-end:  20deg;
+  --rise-delay: 0.6s;
+  --bob-dur: 9s;
+  width: 220px; height: 65px;
+  right: 18%;
+  top: 12%;
+}
+
+.shape-5 {
+  --shape-color: rgba(139, 92, 246, 0.10);
+  --rot-start: -8deg;
+  --rot-end:  -24deg;
+  --rise-delay: 0.7s;
+  --bob-dur: 13s;
+  width: 160px; height: 44px;
+  left: 22%;
+  top: 8%;
+}
+
+.hero-gradient-fade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, var(--bg) 0%, transparent 30%),
+    linear-gradient(to bottom, var(--bg) 0%, transparent 15%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px;
+  border-radius: 100px;
+  background: var(--white-03);
+  border: 1px solid var(--border);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white-60);
+  margin-bottom: 36px;
+  opacity: 0;
+  animation: slide-in-badge 0.8s 0.6s ease forwards;
+}
+
+.hero-badge-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 10px var(--gold), 0 0 20px rgba(245,158,11,0.5);
+  animation: pulse-ring 2s ease-out infinite;
+  position: relative;
+}
+
+.hero-badge-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  opacity: 0;
+  animation: pulse-ring 2s ease-out 0.5s infinite;
+}
+
+.hero-headline {
+  opacity: 0;
+  animation: fade-up 0.9s 0.9s ease forwards;
+}
+
+.hero-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(64px, 10vw, 110px);
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+}
+
+.hero-h1-top {
+  display: block;
+  background: linear-gradient(180deg, var(--white) 0%, rgba(255,255,255,0.75) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-h1-bottom {
+  display: block;
+  background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 40%, #ff9800 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 4vw, 42px);
+  letter-spacing: 0.10em;
+  color: var(--purple-lt);
+  margin-bottom: 32px;
+}
+
+.hero-desc {
+  opacity: 0;
+  animation: fade-up 0.9s 1.1s ease forwards;
+}
+
+.hero-desc p {
+  font-size: clamp(15px, 1.8vw, 18px);
+  color: var(--white-40);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  line-height: 1.8;
+  max-width: 540px;
+  margin: 0 auto 40px;
+}
+
+.hero-actions {
+  opacity: 0;
+  animation: fade-up 0.9s 1.3s ease forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 64px;
+}
+
+.hero-trust {
+  opacity: 0;
+  animation: fade-up 0.9s 1.5s ease forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--white-40);
+  font-weight: 500;
+}
+
+.hero-trust-item svg {
+  width: 16px; height: 16px;
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────────
+   STATS BAR
+───────────────────────────────────────────── */
+.stats-bar {
+  position: relative;
+  z-index: 5;
+  padding: 0 24px;
+}
+
+.stats-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  overflow: hidden;
+}
+
+.stat-item {
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  border-right: 1px solid var(--border);
+  position: relative;
+  transition: background 0.3s;
+}
+
+.stat-item:last-child { border-right: none; }
+.stat-item:hover { background: var(--white-03); }
+
+.stat-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.stat-icon svg { width: 20px; height: 20px; }
+
+.stat-icon.gold  { background: rgba(245,158,11,0.12); color: var(--gold); }
+.stat-icon.purple{ background: rgba(109,40,217,0.18); color: var(--purple-lt); }
+.stat-icon.green { background: rgba(34,197,94,0.12);  color: #4ade80; }
+.stat-icon.blue  { background: rgba(59,130,246,0.12); color: #60a5fa; }
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 36px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--white);
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--white-40);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* ─────────────────────────────────────────────
+   SECTION STRUCTURE
+───────────────────────────────────────────── */
+.section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.section-header .section-title {
+  font-size: clamp(40px, 6vw, 68px);
+  margin-bottom: 16px;
+}
+
+.section-header p {
+  font-size: 16px;
+  color: var(--white-40);
+  font-weight: 300;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+/* ─────────────────────────────────────────────
+   SERVICES SECTION
+───────────────────────────────────────────── */
+.services {
+  background: var(--bg2);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.service-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: -60%; left: -60%;
+  width: 140%; height: 140%;
+  background: radial-gradient(circle, var(--card-glow, rgba(109,40,217,0.08)) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.service-card:hover::before { opacity: 1; }
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,0.18);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.service-card.featured {
+  border-color: rgba(245,158,11,0.35);
+  background: linear-gradient(135deg, rgba(245,158,11,0.06), rgba(109,40,217,0.06));
+}
+
+.service-icon {
+  width: 52px; height: 52px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.service-icon.gold   { background: rgba(245,158,11,0.12); }
+.service-icon.purple { background: rgba(139,92,246,0.15); }
+.service-icon.green  { background: rgba(34,197,94,0.10);  }
+.service-icon.blue   { background: rgba(59,130,246,0.10); }
+.service-icon.pink   { background: rgba(236,72,153,0.10); }
+
+.service-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white-80);
+}
+
+.service-desc {
+  font-size: 14px;
+  color: var(--white-40);
+  line-height: 1.65;
+}
+
+.service-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(245,158,11,0.12);
+  color: var(--gold);
+  border: 1px solid rgba(245,158,11,0.2);
+  margin-top: auto;
+}
+
+/* ─────────────────────────────────────────────
+   DELIVERY AREAS & RATES
+───────────────────────────────────────────── */
+.rates-section { background: var(--bg); }
+
+.rates-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.rates-left {}
+
+.rates-intro {
+  font-size: 16px;
+  color: var(--white-40);
+  font-weight: 300;
+  line-height: 1.75;
+  margin-bottom: 36px;
+}
+
+.rates-highlight-box {
+  background: linear-gradient(135deg, rgba(109,40,217,0.14), rgba(245,158,11,0.06));
+  border: 1px solid rgba(109,40,217,0.3);
+  border-radius: var(--radius-lg);
+  padding: 28px 30px;
+  margin-bottom: 28px;
+}
+
+.rates-highlight-box p {
+  font-size: 14px;
+  color: var(--white-60);
+  line-height: 1.7;
+}
+
+.rates-highlight-box strong {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.coverage-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--white-03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.coverage-icon {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  background: rgba(109,40,217,0.2);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.coverage-icon svg { width: 20px; height: 20px; color: var(--purple-lt); }
+
+.coverage-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.coverage-text strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white-80);
+}
+
+.coverage-text span {
+  font-size: 13px;
+  color: var(--white-40);
+}
+
+.rates-right {}
+
+.rates-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rate-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  background: var(--bg3);
+  border: 1px solid var(--border-lt);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+  cursor: default;
+}
+
+.rate-row:hover {
+  background: rgba(109,40,217,0.08);
+  border-color: rgba(109,40,217,0.25);
+  transform: translateX(4px);
+}
+
+.rate-location {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rate-pin {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  background: rgba(109,40,217,0.15);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.rate-pin svg { width: 14px; height: 14px; color: var(--purple-lt); }
+
+.rate-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white-80);
+}
+
+.rate-distance {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  padding: 0 20px;
+}
+
+.rate-dots {
+  flex: 1;
+  border-bottom: 2px dotted rgba(255,255,255,0.12);
+}
+
+.rate-price {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  background: rgba(245,158,11,0.12);
+  border: 1px solid rgba(245,158,11,0.25);
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--gold);
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+}
+
+/* ─────────────────────────────────────────────
+   HOW IT WORKS
+───────────────────────────────────────────── */
+.how-section { background: var(--bg2); }
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+.steps-grid::before {
+  content: '';
+  position: absolute;
+  top: 56px;
+  left: calc(16.67% + 24px);
+  right: calc(16.67% + 24px);
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--purple), var(--gold), var(--purple), transparent);
+  z-index: 0;
+}
+
+.step-card {
+  position: relative;
+  z-index: 1;
+  padding: 0 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.step-number-wrap {
+  position: relative;
+  width: 80px; height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.step-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  transition: border-color 0.3s;
+}
+
+.step-ring-inner {
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-card:hover .step-ring { border-color: var(--purple); }
+
+.step-num {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  color: var(--white-40);
+}
+
+.step-icon-bg {
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.step-card.s1 .step-icon-bg { background: rgba(109,40,217,0.15); }
+.step-card.s2 .step-icon-bg { background: rgba(245,158,11,0.12); }
+.step-card.s3 .step-icon-bg { background: rgba(34,197,94,0.10);  }
+
+.step-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--purple-lt);
+}
+
+.step-card.s2 .step-label { color: var(--gold); }
+.step-card.s3 .step-label { color: #4ade80; }
+
+.step-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--white-80);
+  line-height: 1.2;
+}
+
+.step-desc {
+  font-size: 14px;
+  color: var(--white-40);
+  line-height: 1.7;
+}
+
+/* ─────────────────────────────────────────────
+   WHY CHOOSE US
+───────────────────────────────────────────── */
+.why-section { background: var(--bg); }
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.why-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.why-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--accent-gradient, linear-gradient(to right, var(--purple), var(--purple-lt)));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.why-card:hover::after { transform: scaleX(1); }
+.why-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,0.16);
+}
+
+.why-card.gold-accent   { --accent-gradient: linear-gradient(to right, var(--gold-dk), var(--gold-lt)); }
+.why-card.green-accent  { --accent-gradient: linear-gradient(to right, #166534, #4ade80); }
+.why-card.purple-accent { --accent-gradient: linear-gradient(to right, var(--purple), var(--purple-lt)); }
+.why-card.blue-accent   { --accent-gradient: linear-gradient(to right, #1d4ed8, #60a5fa); }
+
+.why-icon {
+  width: 56px; height: 56px;
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px;
+}
+
+.why-icon.gold   { background: rgba(245,158,11,0.12); }
+.why-icon.green  { background: rgba(34,197,94,0.10);  }
+.why-icon.purple { background: rgba(109,40,217,0.16); }
+.why-icon.blue   { background: rgba(59,130,246,0.10); }
+
+.why-title {
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--white-80);
+}
+
+.why-desc {
+  font-size: 14px;
+  color: var(--white-40);
+  line-height: 1.7;
+}
+
+.why-metric {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.why-metric-num {
+  font-family: var(--font-display);
+  font-size: 32px;
+  letter-spacing: 0.04em;
+}
+
+.why-card.gold-accent  .why-metric-num { color: var(--gold); }
+.why-card.green-accent .why-metric-num { color: #4ade80; }
+.why-card.purple-accent .why-metric-num{ color: var(--purple-lt); }
+.why-card.blue-accent  .why-metric-num { color: #60a5fa; }
+
+.why-metric-label {
+  font-size: 13px;
+  color: var(--white-40);
+  font-weight: 500;
+}
+
+/* ─────────────────────────────────────────────
+   ABOUT SECTION
+───────────────────────────────────────────── */
+.about-section {
+  background: var(--bg2);
+  overflow: hidden;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-visual {
+  position: relative;
+  height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-bg-circle {
+  position: absolute;
+  width: 340px; height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(109,40,217,0.18) 0%, transparent 70%);
+  animation: glow-pulse 6s ease-in-out infinite;
+}
+
+.about-card-main {
+  position: relative;
+  z-index: 2;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 340px;
+}
+
+.about-avatar {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple), var(--gold));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 26px;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.about-owner-name {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--white-80);
+  margin-bottom: 4px;
+}
+
+.about-owner-role {
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.about-owner-bio {
+  font-size: 14px;
+  color: var(--white-40);
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+.about-contact-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--white-03);
+  border: 1px solid var(--border-lt);
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--white-60);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.contact-chip:hover {
+  background: var(--white-05);
+  border-color: var(--border);
+  color: var(--white-80);
+}
+
+.contact-chip svg { width: 15px; height: 15px; color: var(--purple-lt); flex-shrink: 0; }
+
+.about-float-badge {
+  position: absolute;
+  z-index: 3;
+  padding: 14px 20px;
+  background: rgba(10,8,25,0.9);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.about-float-badge.top-right {
+  top: 20px; right: -10px;
+}
+
+.about-float-badge.bottom-left {
+  bottom: 30px; left: -20px;
+}
+
+.badge-icon {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+}
+
+.badge-icon.green  { background: rgba(34,197,94,0.15); }
+.badge-icon.gold   { background: rgba(245,158,11,0.12); }
+
+.badge-text strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white-80);
+}
+
+.badge-text span {
+  font-size: 11px;
+  color: var(--white-40);
+}
+
+.about-content {}
+
+.about-content .section-title {
+  font-size: clamp(38px, 5vw, 58px);
+  margin-bottom: 24px;
+}
+
+.about-content p {
+  font-size: 16px;
+  color: var(--white-40);
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.about-values {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.about-value {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--white-03);
+  border: 1px solid var(--border-lt);
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--white-60);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.about-value:hover {
+  background: var(--white-05);
+  color: var(--white-80);
+  border-color: var(--border);
+  transform: translateX(4px);
+}
+
+.about-value::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 8px var(--gold);
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────────
+   ORDER / CTA SECTION
+───────────────────────────────────────────── */
+.cta-section {
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(109,40,217,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-inner {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(135deg, var(--bg3) 0%, rgba(26,10,60,0.8) 100%);
+  border: 1px solid rgba(109,40,217,0.3);
+  border-radius: 28px;
+  padding: 72px 64px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cta-inner::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--purple-lt), var(--gold), var(--purple-lt), transparent);
+}
+
+.cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 68px);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.cta-sub {
+  font-size: 16px;
+  color: var(--white-40);
+  font-weight: 300;
+  max-width: 440px;
+  margin: 0 auto 48px;
+  line-height: 1.75;
+}
+
+.cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.cta-contact-cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cta-contact-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  background: var(--white-03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.cta-contact-card:hover {
+  background: var(--white-05);
+  border-color: rgba(255,255,255,0.18);
+  transform: translateY(-2px);
+}
+
+.cta-contact-card-icon {
+  width: 38px; height: 38px;
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+
+.cta-contact-card-icon.phone  { background: rgba(109,40,217,0.18); }
+.cta-contact-card-icon.email  { background: rgba(245,158,11,0.12); }
+.cta-contact-card-icon.wa     { background: rgba(37,211,102,0.12); }
+
+.cta-contact-card-text strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white-80);
+}
+
+.cta-contact-card-text span {
+  font-size: 12px;
+  color: var(--white-40);
+}
+
+/* ─────────────────────────────────────────────
+   MARQUEE / TRUST BAR
+───────────────────────────────────────────── */
+.marquee-section {
+  padding: 36px 0;
+  background: var(--bg2);
+  border-top: 1px solid var(--border-lt);
+  border-bottom: 1px solid var(--border-lt);
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 64px;
+  animation: marquee-scroll 30s linear infinite;
+  width: max-content;
+}
+
+.marquee-track:hover { animation-play-state: paused; }
+
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--white-30, rgba(255,255,255,0.30));
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.marquee-item svg {
+  width: 14px; height: 14px;
+  color: var(--gold);
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────────
+   TESTIMONIALS / TRUST SECTION
+───────────────────────────────────────────── */
+.trust-section { background: var(--bg3); }
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.trust-card {
+  background: var(--bg2);
+  border: 1px solid var(--border-lt);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: var(--transition);
+}
+
+.trust-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+}
+
+.trust-stars {
+  display: flex;
+  gap: 4px;
+  color: var(--gold);
+  font-size: 14px;
+}
+
+.trust-quote {
+  font-size: 15px;
+  color: var(--white-60);
+  line-height: 1.75;
+  font-style: italic;
+}
+
+.trust-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--border-lt);
+  padding-top: 16px;
+}
+
+.trust-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+  color: var(--white);
+}
+
+.trust-avatar.purple { background: linear-gradient(135deg, var(--purple), var(--purple-lt)); }
+.trust-avatar.gold   { background: linear-gradient(135deg, var(--gold-dk), var(--gold)); color: #0a0a18; }
+.trust-avatar.green  { background: linear-gradient(135deg, #166534, #4ade80); }
+
+.trust-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white-80);
+}
+
+.trust-area {
+  font-size: 12px;
+  color: var(--white-40);
+}
+
+/* ─────────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────────── */
+.footer {
+  background: var(--bg);
+  border-top: 1px solid var(--border-lt);
+  padding: 64px 0 32px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 52px;
+}
+
+.footer-brand {}
+
+.footer-logo-top {
+  font-family: var(--font-display);
+  font-size: 32px;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  background: linear-gradient(to right, var(--white), var(--purple-lt));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 4px;
+}
+
+.footer-logo-sub {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.footer-brand-desc {
+  font-size: 14px;
+  color: var(--white-40);
+  line-height: 1.75;
+  max-width: 280px;
+  margin-bottom: 24px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-social {
+  width: 36px; height: 36px;
+  border-radius: 9px;
+  background: var(--white-05);
+  border: 1px solid var(--border-lt);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white-40);
+  transition: var(--transition);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.footer-social:hover {
+  background: var(--white-10);
+  border-color: var(--border);
+  color: var(--white);
+}
+
+.footer-col h4 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--white-60);
+  margin-bottom: 20px;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col li a {
+  font-size: 14px;
+  color: var(--white-40);
+  transition: color 0.2s;
+}
+
+.footer-col li a:hover { color: var(--white-80); }
+
+.footer-bottom {
+  border-top: 1px solid var(--border-lt);
+  padding-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copy {
+  font-size: 13px;
+  color: var(--white-30, rgba(255,255,255,0.30));
+}
+
+.footer-copy strong { color: var(--gold); }
+
+.footer-tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.footer-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  border: 1px solid var(--border-lt);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--white-30, rgba(255,255,255,0.30));
+  letter-spacing: 0.06em;
+}
+
+/* ─────────────────────────────────────────────
+   SCROLL-REVEAL ANIMATION
+───────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ─────────────────────────────────────────────
+   FLOATING ORDER BUTTON (mobile)
+───────────────────────────────────────────── */
+.fab {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 900;
+}
+
+.fab a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  background: linear-gradient(135deg, #25d366, #128c3b);
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: 0 6px 28px rgba(37,211,102,0.45);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.fab a:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 36px rgba(37,211,102,0.60);
+}
+
+.fab svg { width: 18px; height: 18px; }
+
+/* ─────────────────────────────────────────────
+   BACK TO TOP
+───────────────────────────────────────────── */
+.back-top {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 900;
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  opacity: 0;
+  pointer-events: none;
+  color: var(--white-60);
+}
+
+.back-top.visible { opacity: 1; pointer-events: all; }
+.back-top:hover {
+  background: var(--white-05);
+  border-color: var(--border);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .rates-layout { grid-template-columns: 1fr; gap: 40px; }
+  .about-layout { grid-template-columns: 1fr; gap: 48px; }
+  .about-visual { height: 340px; }
+}
+
+@media (max-width: 800px) {
+  .stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .stat-item:nth-child(2) { border-right: none; }
+  .stat-item:nth-child(1),
+  .stat-item:nth-child(2) { border-bottom: 1px solid var(--border); }
+  .steps-grid { grid-template-columns: 1fr; }
+  .steps-grid::before { display: none; }
+  .step-card { padding: 0; }
+  .why-grid { grid-template-columns: 1fr; }
+  .trust-grid { grid-template-columns: 1fr; }
+  .cta-inner { padding: 48px 32px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .fab { display: block; }
+}
+
+@media (max-width: 640px) {
+  .nav-links, .nav-cta { display: none; }
+  .nav-menu-toggle { display: flex; }
+  .hero-h1 { font-size: 58px; }
+  .hero-h2 { font-size: 22px; }
+  .section { padding: 72px 0; }
+  .services-grid { grid-template-columns: 1fr; }
+  .cta-inner { padding: 40px 24px; }
+  .cta-actions { flex-direction: column; width: 100%; }
+  .cta-actions .btn { width: 100%; }
+  .cta-contact-cards { flex-direction: column; width: 100%; }
+  .cta-contact-card { width: 100%; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .stats-inner { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 420px) {
+  .hero-h1 { font-size: 46px; }
+  .hero-trust { flex-direction: column; gap: 16px; }
+  .stats-inner { grid-template-columns: 1fr 1fr; }
+}
+
+/* ─────────────────────────────────────────────
+   FOOTER CREDIT
+───────────────────────────────────────────── */
+.footer-credit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-lt);
+  font-size: 12px;
+  color: rgba(255,255,255,0.22);
+}
+
+.footer-credit strong {
+  color: var(--purple-lt);
+  font-weight: 700;
+}
+
+.footer-credit a {
+  color: rgba(255,255,255,0.35);
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.footer-credit a:hover { color: var(--purple-lt); }
+
+.footer-credit-sep {
+  color: rgba(255,255,255,0.15);
+}
+
+/* ─────────────────────────────────────────────
+   ENHANCED MOBILE STYLES
+───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Hero */
+  .hero { padding: 100px 0 60px; min-height: auto; }
+  .hero-content { padding: 0 20px; }
+  .hero-badge { font-size: 11px; padding: 6px 14px; margin-bottom: 28px; }
+  .hero-h1 { font-size: clamp(52px, 14vw, 72px); line-height: 0.92; }
+  .hero-h2 { font-size: clamp(18px, 5vw, 28px); margin-bottom: 20px; }
+  .hero-desc p { font-size: 14px; margin-bottom: 28px; }
+  .hero-actions { gap: 12px; margin-bottom: 40px; }
+  .hero-actions .btn { padding: 14px 24px; font-size: 14px; }
+  .hero-trust { gap: 16px; }
+  .hero-trust-item { font-size: 12px; }
+
+  /* Shapes — smaller on mobile */
+  .shape-1 { width: 260px; height: 70px; left: -15%; }
+  .shape-2 { width: 220px; height: 60px; right: -10%; }
+  .shape-3 { width: 160px; height: 44px; }
+  .shape-4 { width: 120px; height: 36px; }
+  .shape-5 { width: 90px; height: 28px; }
+
+  /* Stats */
+  .stats-bar { padding: 0 16px; }
+  .stats-inner { border-radius: 18px; }
+  .stat-item { padding: 24px 16px; }
+  .stat-number { font-size: 28px; }
+  .stat-label { font-size: 11px; }
+
+  /* Sections */
+  .section { padding: 64px 0; }
+  .section-header { margin-bottom: 40px; }
+  .section-header .section-title { font-size: clamp(32px, 9vw, 48px); }
+  .section-header p { font-size: 14px; padding: 0 8px; }
+  .container { padding: 0 18px; }
+
+  /* Services */
+  .services-grid { grid-template-columns: 1fr; gap: 14px; }
+  .service-card { padding: 28px 24px; }
+
+  /* Rates */
+  .rates-layout { grid-template-columns: 1fr; gap: 32px; }
+  .rates-left .section-title { font-size: clamp(34px, 9vw, 52px); }
+  .rate-row { padding: 14px 18px; }
+  .rate-name { font-size: 14px; }
+  .rate-price { font-size: 14px; padding: 5px 12px; min-width: 46px; }
+
+  /* How it works */
+  .steps-grid { grid-template-columns: 1fr; gap: 36px; }
+  .steps-grid::before { display: none; }
+  .step-card { align-items: flex-start; text-align: left; flex-direction: row; flex-wrap: wrap; gap: 0; }
+  .step-number-wrap { width: 60px; height: 60px; flex-shrink: 0; margin-right: 16px; margin-bottom: 0; }
+  .step-icon-bg { font-size: 18px; inset: 8px; }
+  .step-num { font-size: 22px; }
+  .step-card .step-label,
+  .step-card .step-title,
+  .step-card .step-desc { text-align: left; }
+  .step-content { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+  .step-title { font-size: 19px; }
+
+  /* Why cards */
+  .why-grid { grid-template-columns: 1fr; gap: 14px; }
+  .why-card { padding: 28px 24px; }
+
+  /* About */
+  .about-layout { grid-template-columns: 1fr; gap: 40px; }
+  .about-visual { height: auto; min-height: 320px; }
+  .about-card-main { max-width: 100%; }
+  .about-float-badge.top-right { top: -10px; right: 0; }
+  .about-float-badge.bottom-left { bottom: -10px; left: 0; }
+  .about-content .section-title { font-size: clamp(34px, 9vw, 52px); }
+
+  /* Trust cards */
+  .trust-grid { grid-template-columns: 1fr; gap: 14px; }
+
+  /* CTA */
+  .cta-inner { padding: 40px 24px; border-radius: 20px; }
+  .cta-title { font-size: clamp(34px, 9vw, 52px); }
+  .cta-sub { font-size: 14px; }
+  .cta-actions { flex-direction: column; gap: 12px; }
+  .cta-actions .btn { width: 100%; justify-content: center; }
+  .cta-contact-cards { flex-direction: column; gap: 12px; }
+  .cta-contact-card { width: 100%; }
+
+  /* Footer */
+  .footer { padding: 48px 0 24px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer-brand-desc { max-width: 100%; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .footer-copy { font-size: 12px; }
+  .footer-tags { gap: 6px; }
+  .footer-credit { font-size: 11px; text-align: center; }
+
+  /* Back to top — move above FAB */
+  .back-top { bottom: 88px; }
+}
+
+/* ─── Very small screens ─── */
+@media (max-width: 360px) {
+  .hero-h1 { font-size: 44px; }
+  .hero-actions .btn { padding: 13px 18px; font-size: 13px; }
+  .btn-lg { padding: 14px 20px; font-size: 14px; }
+  .stats-inner { grid-template-columns: 1fr 1fr; }
+  .stat-number { font-size: 24px; }
+}
+</style>
+</head>
+
+<body>
+<!-- ─── NAVIGATION ─────────────────────────────── -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="MaBhiza Home">
+      <span class="nav-logo-top">MaBhiza</span>
+      <span class="nav-logo-sub">On Delivery · Ixopo, KZN</span>
+    </a>
+
+    <ul class="nav-links" role="navigation" aria-label="Main navigation">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#rates">Rates</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a href="https://wa.me/27780547025" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:15px;height:15px">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.526 5.841L.062 23.285c-.089.354.233.676.587.587l5.444-1.464A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.924 0-3.73-.5-5.293-1.377l-.38-.22-3.229.869.882-3.228-.241-.393A9.943 9.943 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+        </svg>
+        Order Now
+      </a>
+    </div>
+
+    <button class="nav-menu-toggle" id="menuToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav overlay -->
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- Mobile nav drawer -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+  <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">✕</button>
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#rates"    class="mobile-link">Delivery Rates</a>
+  <a href="#how"      class="mobile-link">How It Works</a>
+  <a href="#why"      class="mobile-link">Why Choose Us</a>
+  <a href="#about"    class="mobile-link">About</a>
+  <a href="#contact"  class="mobile-link">Contact</a>
+  <a href="https://wa.me/27780547025" class="btn btn-whatsapp" target="_blank" rel="noopener" style="text-align:center;">
+    WhatsApp Us
+  </a>
+</nav>
+
+<!-- ─── HERO ──────────────────────────────────── -->
+<section class="hero" id="home" aria-label="Hero section">
+  <div class="hero-bg-glow"></div>
+  <div class="hero-bg-grid"></div>
+
+  <!-- Floating geometric shapes -->
+  <div class="geo-shape shape-1" aria-hidden="true"></div>
+  <div class="geo-shape shape-2" aria-hidden="true"></div>
+  <div class="geo-shape shape-3" aria-hidden="true"></div>
+  <div class="geo-shape shape-4" aria-hidden="true"></div>
+  <div class="geo-shape shape-5" aria-hidden="true"></div>
+
+  <div class="hero-gradient-fade" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge" aria-label="Location badge">
+      <span class="hero-badge-dot"></span>
+      Fast · Reliable · Safe — Ixopo, KZN
+    </div>
+
+    <div class="hero-headline">
+      <h1 class="hero-h1">
+        <span class="hero-h1-top">MaBhiza</span>
+        <span class="hero-h1-bottom">On Delivery</span>
+      </h1>
+      <p class="hero-h2">We Deliver. You Relax.</p>
+    </div>
+
+    <div class="hero-desc">
+      <p>
+        Fast, reliable, and affordable delivery service covering all major areas around Ixopo.
+        From groceries to parcels — if you need it delivered, we've got you covered.
+      </p>
+    </div>
+
+    <div class="hero-actions">
+      <a href="https://wa.me/27780547025?text=Hi%20MaBhiza%2C%20I%27d%20like%20to%20place%20an%20order."
+         class="btn btn-primary btn-lg"
+         target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.526 5.841L.062 23.285c-.089.354.233.676.587.587l5.444-1.464A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.924 0-3.73-.5-5.293-1.377l-.38-.22-3.229.869.882-3.228-.241-.393A9.943 9.943 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+        </svg>
+        Order on WhatsApp
+      </a>
+      <a href="tel:+27780547025" class="btn btn-secondary btn-lg">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:17px;height:17px">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.0 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/>
+        </svg>
+        Call Us Now
+      </a>
+    </div>
+
+    <div class="hero-trust" aria-label="Trust indicators">
+      <div class="hero-trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Trusted &amp; Secure
+      </div>
+      <div class="hero-trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        On-Time, Every Time
+      </div>
+      <div class="hero-trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        All Areas Around Ixopo
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STATS BAR ──────────────────────────────── -->
+<div class="stats-bar reveal">
+  <div class="stats-inner" role="region" aria-label="Key statistics">
+    <div class="stat-item">
+      <div class="stat-icon gold">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="stat-number">30<span style="font-size:22px">min</span></div>
+      <div class="stat-label">Avg Delivery Time</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="stat-number">8+</div>
+      <div class="stat-label">Delivery Areas</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      </div>
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Satisfaction Focus</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      </div>
+      <div class="stat-number">R30<span style="font-size:16px">+</span></div>
+      <div class="stat-label">Starting Rate</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SERVICES ──────────────────────────────── -->
+<section class="section services" id="services" aria-labelledby="services-heading">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">What We Deliver</div>
+      <h2 class="section-title" id="services-heading">
+        <span class="purple-text">Everything</span> You Need,
+        <br/>Right to Your Door
+      </h2>
+      <p>From everyday groceries to urgent pharmacy runs — we handle it all with speed and care.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card featured reveal reveal-delay-1" style="--card-glow:rgba(245,158,11,0.10)">
+        <div class="service-icon gold" aria-hidden="true">🛒</div>
+        <div class="service-title">Groceries</div>
+        <div class="service-desc">
+          Fresh groceries and household essentials from your local shops delivered straight to your door. No more carrying heavy bags.
+        </div>
+        <span class="service-tag">Most Popular</span>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2" style="--card-glow:rgba(167,139,250,0.08)">
+        <div class="service-icon purple" aria-hidden="true">🍽️</div>
+        <div class="service-title">Food Orders</div>
+        <div class="service-desc">
+          Takeaways and meal pickups from restaurants and food stalls around Ixopo, delivered hot and fresh.
+        </div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-3" style="--card-glow:rgba(59,130,246,0.08)">
+        <div class="service-icon blue" aria-hidden="true">📦</div>
+        <div class="service-title">Parcels &amp; Packages</div>
+        <div class="service-desc">
+          Send and receive parcels safely. Documents, gifts, goods — we handle your deliveries with full care.
+        </div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-4" style="--card-glow:rgba(34,197,94,0.06)">
+        <div class="service-icon green" aria-hidden="true">💊</div>
+        <div class="service-title">Pharmacy Runs</div>
+        <div class="service-desc">
+          Prescription pickups and over-the-counter medication delivered discreetly when you need it most.
+        </div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-5" style="--card-glow:rgba(236,72,153,0.06)">
+        <div class="service-icon pink" aria-hidden="true">✨</div>
+        <div class="service-title">And Much More</div>
+        <div class="service-desc">
+          Hardware, stationery, cosmetics, baby products — if a shop sells it and you need it, we'll get it to you.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MARQUEE ────────────────────────────────── -->
+<div class="marquee-section" aria-hidden="true">
+  <div class="marquee-track">
+    <!-- First copy -->
+    <span class="marquee-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Fast Delivery
+    </span>
+    <span class="marquee-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Safe &amp; Secure
+    </span>
+    <span class="marquee-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Affordable Rates
+    </span>
+    <span class="marquee-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Ixopo Coverage
+    </span>
+    <span class="marquee-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      WhatsApp Orders
+    </span>
+    <span class="marquee-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Your Priority
+    </span>
+    <span class="marquee-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      On Time Every Time
+    </span>
+    <!-- Second copy (seamless loop) -->
+    <span class="marquee-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Fast Delivery
+    </span>
+    <span class="marquee-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Safe &amp; Secure
+    </span>
+    <span class="marquee-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Affordable Rates
+    </span>
+    <span class="marquee-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Ixopo Coverage
+    </span>
+    <span class="marquee-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      WhatsApp Orders
+    </span>
+    <span class="marquee-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Your Priority
+    </span>
+    <span class="marquee-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      On Time Every Time
+    </span>
+  </div>
+</div>
+
+<!-- ─── DELIVERY RATES ─────────────────────────── -->
+<section class="section rates-section" id="rates" aria-labelledby="rates-heading">
+  <div class="container">
+    <div class="rates-layout">
+      <!-- Left -->
+      <div class="rates-left reveal">
+        <div class="section-label">Delivery Areas &amp; Pricing</div>
+        <h2 class="section-title" id="rates-heading" style="font-size:clamp(38px,5.5vw,62px);margin-bottom:20px">
+          Simple,<br/>
+          <span class="gradient-text">Transparent</span><br/>
+          Rates
+        </h2>
+        <p class="rates-intro">
+          No hidden fees, no surprises. We believe in honest pricing so you always know exactly what you're paying before we pick up. All deliveries cover the Ixopo and surrounding areas.
+        </p>
+
+        <div class="rates-highlight-box">
+          <p>
+            <strong>Bulk &amp; business orders</strong> available at negotiated rates. Perfect for local businesses that need regular deliveries. Contact us to discuss a custom arrangement.
+          </p>
+        </div>
+
+        <div class="coverage-badge">
+          <div class="coverage-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="coverage-text">
+            <strong>Delivering Anywhere Around Ixopo</strong>
+            <span>Serving KwaZulu-Natal, uGu District</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: rates grid -->
+      <div class="rates-right reveal reveal-delay-2">
+        <div class="rates-grid" role="list" aria-label="Delivery rates by area">
+          <div class="rate-row" role="listitem">
+            <div class="rate-location">
+              <div class="rate-pin" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <span class="rate-name">Around Town</span>
+            </div>
+            <div class="rate-distance"><div class="rate-dots"></div></div>
+            <div class="rate-price" aria-label="Rate: R30">R30</div>
+          </div>
+
+          <div class="rate-row" role="listitem">
+            <div class="rate-location">
+              <div class="rate-pin" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <span class="rate-name">Morningside</span>
+            </div>
+            <div class="rate-distance"><div class="rate-dots"></div></div>
+            <div class="rate-price" aria-label="Rate: R40">R40</div>
+          </div>
+
+          <div class="rate-row" role="listitem">
+            <div class="rate-location">
+              <div class="rate-pin" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <span class="rate-name">Fairview</span>
+            </div>
+            <div class="rate-distance"><div class="rate-dots"></div></div>
+            <div class="rate-price" aria-label="Rate: R40">R40</div>
+          </div>
+
+          <div class="rate-row" role="listitem">
+            <div class="rate-location">
+              <div class="rate-pin" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <span class="rate-name">Mariathal</span>
+            </div>
+            <div class="rate-distance"><div class="rate-dots"></div></div>
+            <div class="rate-price" aria-label="Rate: R50">R50</div>
+          </div>
+
+          <div class="rate-row" role="listitem">
+            <div class="rate-location">
+              <div class="rate-pin" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <span class="rate-name">Hospital Area</span>
+            </div>
+            <div class="rate-distance"><div class="rate-dots"></div></div>
+            <div class="rate-price" aria-label="Rate: R50">R50</div>
+          </div>
+
+          <div class="rate-row" role="listitem">
+            <div class="rate-location">
+              <div class="rate-pin" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <span class="rate-name">Zwide</span>
+            </div>
+            <div class="rate-distance"><div class="rate-dots"></div></div>
+            <div class="rate-price" aria-label="Rate: R45">R45</div>
+          </div>
+
+          <div class="rate-row" role="listitem">
+            <div class="rate-location">
+              <div class="rate-pin" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <span class="rate-name">Eskom</span>
+            </div>
+            <div class="rate-distance"><div class="rate-dots"></div></div>
+            <div class="rate-price" aria-label="Rate: R40">R40</div>
+          </div>
+
+          <div class="rate-row" role="listitem">
+            <div class="rate-location">
+              <div class="rate-pin" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <span class="rate-name">Sappi</span>
+            </div>
+            <div class="rate-distance"><div class="rate-dots"></div></div>
+            <div class="rate-price" aria-label="Rate: R50">R50</div>
+          </div>
+        </div>
+
+        <p style="font-size:13px;color:var(--white-30,rgba(255,255,255,0.3));margin-top:16px;text-align:right;">
+          * Prices may vary for large or heavy items. Contact us for a quote.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOW IT WORKS ───────────────────────────── -->
+<section class="section how-section" id="how" aria-labelledby="how-heading">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">The Process</div>
+      <h2 class="section-title" id="how-heading">
+        How It
+        <span class="gradient-text">Works</span>
+      </h2>
+      <p>Three simple steps between you and your delivery. Fast, effortless, and reliable every time.</p>
+    </div>
+
+    <div class="steps-grid" role="list">
+      <div class="step-card s1 reveal reveal-delay-1" role="listitem">
+        <div class="step-number-wrap">
+          <div class="step-ring"></div>
+          <div class="step-icon-bg" aria-hidden="true">📱</div>
+          <div class="step-ring-inner">
+            <span class="step-num">01</span>
+          </div>
+        </div>
+        <div class="step-content">
+          <div class="step-label">Step One</div>
+          <div class="step-title">Place Your Order</div>
+          <div class="step-desc">
+            Call us, send a WhatsApp message, or email with what you need and where it needs to go. We'll confirm quickly.
+          </div>
+        </div>
+      </div>
+
+      <div class="step-card s2 reveal reveal-delay-3" role="listitem">
+        <div class="step-number-wrap">
+          <div class="step-ring"></div>
+          <div class="step-icon-bg" aria-hidden="true">🏍️</div>
+          <div class="step-ring-inner">
+            <span class="step-num">02</span>
+          </div>
+        </div>
+        <div class="step-content">
+          <div class="step-label">Step Two</div>
+          <div class="step-title">We Pick It Up</div>
+          <div class="step-desc">
+            Our rider heads straight to the collection point. We handle everything from pickup with speed and care.
+          </div>
+        </div>
+      </div>
+
+      <div class="step-card s3 reveal reveal-delay-5" role="listitem">
+        <div class="step-number-wrap">
+          <div class="step-ring"></div>
+          <div class="step-icon-bg" aria-hidden="true">🏠</div>
+          <div class="step-ring-inner">
+            <span class="step-num">03</span>
+          </div>
+        </div>
+        <div class="step-content">
+          <div class="step-label">Step Three</div>
+          <div class="step-title">Delivered to You</div>
+          <div class="step-desc">
+            Your order arrives at your door safely and on time. You relax — that's our job done. Simple as that.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY CHOOSE US ─────────────────────────── -->
+<section class="section why-section" id="why" aria-labelledby="why-heading">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Why MaBhiza</div>
+      <h2 class="section-title" id="why-heading">
+        Built on
+        <span class="purple-text">Trust</span>
+      </h2>
+      <p>Every delivery is a promise. Here's what sets us apart from the rest.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card gold-accent reveal reveal-delay-1">
+        <div class="why-icon gold" aria-hidden="true">⚡</div>
+        <div class="why-title">Lightning Fast Delivery</div>
+        <div class="why-desc">
+          We don't waste time. Once your order is confirmed, our rider is on the way. We prioritise speed without sacrificing the safety of your items.
+        </div>
+        <div class="why-metric">
+          <span class="why-metric-num">~30</span>
+          <span class="why-metric-label">min average delivery</span>
+        </div>
+      </div>
+
+      <div class="why-card green-accent reveal reveal-delay-2">
+        <div class="why-icon green" aria-hidden="true">🛡️</div>
+        <div class="why-title">Safe &amp; Secure Handling</div>
+        <div class="why-desc">
+          Your items are in good hands — always. Parcels, food, medication — we treat every delivery like it's our own, handling with care from collection to drop-off.
+        </div>
+        <div class="why-metric">
+          <span class="why-metric-num">0</span>
+          <span class="why-metric-label">items lost or damaged</span>
+        </div>
+      </div>
+
+      <div class="why-card purple-accent reveal reveal-delay-3">
+        <div class="why-icon purple" aria-hidden="true">📍</div>
+        <div class="why-title">Wide Area Coverage</div>
+        <div class="why-desc">
+          Covering all major areas around Ixopo including Morningside, Fairview, Mariathal, Zwide, Eskom, Sappi, and more. Growing every season.
+        </div>
+        <div class="why-metric">
+          <span class="why-metric-num">8+</span>
+          <span class="why-metric-label">areas covered</span>
+        </div>
+      </div>
+
+      <div class="why-card blue-accent reveal reveal-delay-4">
+        <div class="why-icon blue" aria-hidden="true">💰</div>
+        <div class="why-title">Affordable &amp; Transparent</div>
+        <div class="why-desc">
+          Honest pricing you can count on. No surprise charges, no inflated rates. Delivering value to Ixopo's community is part of who we are.
+        </div>
+        <div class="why-metric">
+          <span class="why-metric-num">R30</span>
+          <span class="why-metric-label">starting from</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT SECTION ─────────────────────────── -->
+<section class="section about-section" id="about" aria-labelledby="about-heading">
+  <div class="container">
+    <div class="about-layout">
+      <!-- Visual card side -->
+      <div class="about-visual reveal">
+        <div class="about-bg-circle" aria-hidden="true"></div>
+
+        <div class="about-card-main">
+          <div class="about-avatar" aria-label="Simlonde avatar">SL</div>
+          <div class="about-owner-name">Simlonde</div>
+          <div class="about-owner-role">Founder &amp; Owner — MaBhiza</div>
+          <div class="about-owner-bio">
+            Local entrepreneur committed to making life easier for the people of Ixopo and surrounding areas through fast, reliable delivery services that this community can depend on daily.
+          </div>
+
+          <div class="about-contact-chips">
+            <a href="https://mail.google.com/mail/?view=cm&to=simlonder@gmail.com" target="_blank" rel="noopener" class="contact-chip" aria-label="Email Simlonde">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              simlonder@gmail.com
+            </a>
+            <a href="tel:+27780547025" class="contact-chip" aria-label="Call 078 054 7025">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.0 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+              078 054 7025
+            </a>
+            <a href="tel:+27607892651" class="contact-chip" aria-label="Call 060 789 2651">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.0 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+              060 789 2651
+            </a>
+          </div>
+        </div>
+
+        <!-- Floating badges -->
+        <div class="about-float-badge top-right" aria-hidden="true">
+          <div class="badge-icon green">✅</div>
+          <div class="badge-text">
+            <strong>Trusted Local</strong>
+            <span>Ixopo, KZN</span>
+          </div>
+        </div>
+
+        <div class="about-float-badge bottom-left" aria-hidden="true">
+          <div class="badge-icon gold">⭐</div>
+          <div class="badge-text">
+            <strong>Community First</strong>
+            <span>Reliable service</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content side -->
+      <div class="about-content reveal reveal-delay-3">
+        <div class="section-label">Our Story</div>
+        <h2 class="section-title" id="about-heading">
+          <span class="purple-text">Rooted</span> in<br/>
+          the Community
+        </h2>
+
+        <p>
+          MaBhiza On Delivery was born out of a simple idea: the people of Ixopo deserve a delivery service they can actually depend on. Founded by Simlonde, the business grew from recognising a real gap in the community — that getting everyday things delivered quickly and affordably shouldn't be a luxury.
+        </p>
+
+        <p>
+          We operate right here in Ixopo, KwaZulu-Natal, with a deep understanding of the area, the roads, and the people. Every delivery is personal to us — because this is our home too.
+        </p>
+
+        <div class="about-values" aria-label="Our values">
+          <div class="about-value">Community-first approach — serving our neighbours with integrity</div>
+          <div class="about-value">No order too small — every customer matters equally</div>
+          <div class="about-value">Reliability as a standard — not just a promise</div>
+          <div class="about-value">Growing with Ixopo — expanding coverage as the need grows</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRUST / TESTIMONIALS ──────────────────── -->
+<section class="section trust-section" aria-labelledby="trust-heading">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Community Feedback</div>
+      <h2 class="section-title" id="trust-heading">
+        What People
+        <span class="gradient-text">Are Saying</span>
+      </h2>
+    </div>
+
+    <div class="trust-grid">
+      <div class="trust-card reveal reveal-delay-1">
+        <div class="trust-stars" aria-label="5 stars">★★★★★</div>
+        <div class="trust-quote">
+          "MaBhiza delivered my groceries within 30 minutes. I was shocked — I didn't even finish making tea! Fast, friendly, and my order was 100% correct."
+        </div>
+        <div class="trust-author">
+          <div class="trust-avatar purple" aria-hidden="true">TN</div>
+          <div>
+            <div class="trust-name">Thandi N.</div>
+            <div class="trust-area">Morningside, Ixopo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="trust-card reveal reveal-delay-2">
+        <div class="trust-stars" aria-label="5 stars">★★★★★</div>
+        <div class="trust-quote">
+          "I use MaBhiza every week for my pharmacy and grocery runs. The prices are fair and Simlonde is always professional. This service is a blessing for our area."
+        </div>
+        <div class="trust-author">
+          <div class="trust-avatar gold" aria-hidden="true">MS</div>
+          <div>
+            <div class="trust-name">Musa S.</div>
+            <div class="trust-area">Fairview, Ixopo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="trust-card reveal reveal-delay-3">
+        <div class="trust-stars" aria-label="5 stars">★★★★★</div>
+        <div class="trust-quote">
+          "Sent an important parcel to Sappi — arrived safely in under an hour. Communication throughout was excellent. Will definitely use again for all my deliveries."
+        </div>
+        <div class="trust-author">
+          <div class="trust-avatar green" aria-hidden="true">NZ</div>
+          <div>
+            <div class="trust-name">Nomsa Z.</div>
+            <div class="trust-area">Zwide, Ixopo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA / ORDER SECTION ────────────────────── -->
+<section class="section cta-section" id="contact" aria-labelledby="cta-heading">
+  <div class="container">
+    <div class="cta-bg" aria-hidden="true"></div>
+    <div class="cta-inner reveal">
+      <div class="section-label" style="justify-content:center">Place Your Order</div>
+      <h2 class="cta-title" id="cta-heading">
+        <span style="background:linear-gradient(180deg,var(--white),rgba(255,255,255,0.8));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+          Your Delivery.
+        </span>
+        <br/>
+        <span class="gradient-text">Our Priority.</span>
+      </h2>
+      <p class="cta-sub">
+        Ready to order? Reach us on WhatsApp, give us a call, or send an email. We respond fast.
+      </p>
+
+      <div class="cta-actions">
+        <a href="https://wa.me/27780547025?text=Hi%20MaBhiza%2C%20I%27d%20like%20to%20place%20an%20order."
+           class="btn btn-whatsapp btn-lg"
+           target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.526 5.841L.062 23.285c-.089.354.233.676.587.587l5.444-1.464A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.924 0-3.73-.5-5.293-1.377l-.38-.22-3.229.869.882-3.228-.241-.393A9.943 9.943 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+          </svg>
+          Order on WhatsApp
+        </a>
+        <a href="tel:+27780547025" class="btn btn-secondary btn-lg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:17px;height:17px">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.0 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/>
+          </svg>
+          Call 078 054 7025
+        </a>
+      </div>
+
+      <div class="cta-contact-cards">
+        <a href="tel:+27607892651" class="cta-contact-card" aria-label="Call 060 789 2651">
+          <div class="cta-contact-card-icon phone" aria-hidden="true">📞</div>
+          <div class="cta-contact-card-text">
+            <strong>060 789 2651</strong>
+            <span>Alternative line</span>
+          </div>
+        </a>
+        <a href="https://mail.google.com/mail/?view=cm&to=simlonder@gmail.com" target="_blank" rel="noopener" class="cta-contact-card" aria-label="Email simlonder@gmail.com">
+          <div class="cta-contact-card-icon email" aria-hidden="true">✉️</div>
+          <div class="cta-contact-card-text">
+            <strong>simlonder@gmail.com</strong>
+            <span>Send us a message</span>
+          </div>
+        </a>
+        <a href="https://wa.me/27607892651" target="_blank" rel="noopener" class="cta-contact-card" aria-label="WhatsApp 060 789 2651">
+          <div class="cta-contact-card-icon wa" aria-hidden="true">💬</div>
+          <div class="cta-contact-card-text">
+            <strong>WhatsApp 2</strong>
+            <span>060 789 2651</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────── -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <div class="footer-logo-top">MaBhiza</div>
+        <div class="footer-logo-sub">On Delivery</div>
+        <p class="footer-brand-desc">
+          Fast, reliable, and affordable delivery service serving the Ixopo community and all surrounding areas in KwaZulu-Natal, South Africa.
+        </p>
+        <div class="footer-socials" aria-label="Contact options">
+          <a href="https://wa.me/27780547025" class="footer-social" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.526 5.841L.062 23.285c-.089.354.233.676.587.587l5.444-1.464A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.924 0-3.73-.5-5.293-1.377l-.38-.22-3.229.869.882-3.228-.241-.393A9.943 9.943 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+            </svg>
+          </a>
+          <a href="https://mail.google.com/mail/?view=cm&to=simlonder@gmail.com" target="_blank" rel="noopener" class="footer-social" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </a>
+          <a href="tel:+27780547025" class="footer-social" aria-label="Call">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.0 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Services col -->
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Grocery Delivery</a></li>
+          <li><a href="#services">Food Orders</a></li>
+          <li><a href="#services">Parcel Delivery</a></li>
+          <li><a href="#services">Pharmacy Runs</a></li>
+          <li><a href="#services">And More</a></li>
+        </ul>
+      </div>
+
+      <!-- Areas col -->
+      <div class="footer-col">
+        <h4>Delivery Areas</h4>
+        <ul>
+          <li><a href="#rates">Around Town — R30</a></li>
+          <li><a href="#rates">Morningside — R40</a></li>
+          <li><a href="#rates">Fairview — R40</a></li>
+          <li><a href="#rates">Zwide — R45</a></li>
+          <li><a href="#rates">Mariathal — R50</a></li>
+          <li><a href="#rates">Sappi — R50</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact col -->
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <ul>
+          <li><a href="tel:+27780547025">078 054 7025</a></li>
+          <li><a href="tel:+27607892651">060 789 2651</a></li>
+          <li><a href="https://mail.google.com/mail/?view=cm&to=simlonder@gmail.com" target="_blank" rel="noopener">simlonder@gmail.com</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#about">About MaBhiza</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">
+        © 2025 <strong>MaBhiza On Delivery</strong>. All rights reserved. Ixopo, KwaZulu-Natal, South Africa.
+      </p>
+      <div class="footer-tags" aria-hidden="true">
+        <span class="footer-tag">🇿🇦 KZN</span>
+        <span class="footer-tag">Ixopo</span>
+        <span class="footer-tag">Fast &amp; Reliable</span>
+      </div>
+    </div>
+
+    <div class="footer-credit">
+      <span>Website created by</span>
+      <strong>Lunga</strong>
+      <span class="footer-credit-sep">·</span>
+      <a href="https://mail.google.com/mail/?view=cm&to=lungazntando@gmail.com" target="_blank" rel="noopener" aria-label="Email Lunga">lungazntando@gmail.com</a>
+      <span class="footer-credit-sep">·</span>
+      <a href="tel:+27684089829" aria-label="Call Lunga">068 408 9829</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── FLOATING ORDER BUTTON (mobile) ────────── -->
+<div class="fab" aria-label="Quick order button">
+  <a href="https://wa.me/27780547025?text=Hi%20MaBhiza%2C%20I%27d%20like%20to%20order."
+     target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.526 5.841L.062 23.285c-.089.354.233.676.587.587l5.444-1.464A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.924 0-3.73-.5-5.293-1.377l-.38-.22-3.229.869.882-3.228-.241-.393A9.943 9.943 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+    </svg>
+    Order Now
+  </a>
+</div>
+
+<!-- Back to top -->
+<button class="back-top" id="backTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+    <polyline points="18 15 12 9 6 15"/>
+  </svg>
+</button>
+
+<!-- ─── SCRIPTS ──────────────────────────────── -->
+<script>
+/* === NAV SCROLL === */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+/* === BACK TO TOP === */
+const backTop = document.getElementById('backTop');
+window.addEventListener('scroll', () => {
+  backTop.classList.toggle('visible', window.scrollY > 400);
+}, { passive: true });
+backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* === MOBILE NAV === */
+const menuToggle   = document.getElementById('menuToggle');
+const mobileNav    = document.getElementById('mobileNav');
+const mobileClose  = document.getElementById('mobileNavClose');
+const navOverlay   = document.getElementById('navOverlay');
+
+function openMobileNav() {
+  mobileNav.classList.add('open');
+  navOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMobileNav() {
+  mobileNav.classList.remove('open');
+  navOverlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+menuToggle.addEventListener('click', openMobileNav);
+mobileClose.addEventListener('click', closeMobileNav);
+navOverlay.addEventListener('click', closeMobileNav);
+
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', closeMobileNav);
+});
+
+/* === SCROLL REVEAL === */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* === ACTIVE NAV LINKS === */
+const sections = document.querySelectorAll('section[id], div[id]');
+const navLinks  = document.querySelectorAll('.nav-links a');
+
+const activeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href').replace('#', '');
+        link.style.color = href === id ? 'var(--white)' : '';
+      });
+    }
+  });
+}, { threshold: 0.4 });
+
+sections.forEach(s => activeObserver.observe(s));
+
+/* === SMOOTH SCROLL for all anchor links === */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+/* === RATE ROW HOVER SOUND EFFECT (visual feedback) === */
+document.querySelectorAll('.rate-row').forEach(row => {
+  row.addEventListener('mouseenter', () => {
+    row.style.borderColor = 'rgba(109, 40, 217, 0.4)';
+  });
+  row.addEventListener('mouseleave', () => {
+    row.style.borderColor = '';
+  });
+});
+
+/* === PARALLAX on hero shapes (subtle) === */
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      const shapes = document.querySelectorAll('.geo-shape');
+      shapes.forEach((shape, i) => {
+        const speed = 0.04 + i * 0.018;
+        const drift = y * speed;
+        shape.style.transform = `translateY(${drift}px) rotate(var(--rot-end, 0deg))`;
+      });
+      ticking = false;
+    });
+    ticking = true;
+  }
+}, { passive: true });
+</script>
+</body>
+</html>
